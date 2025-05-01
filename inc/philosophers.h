@@ -27,13 +27,23 @@ typedef struct s_philo
 {
 	pthread_t	thread;
 	int			id;
+	int			num_of_philos;
+	size_t		time_to_die;
+	size_t		time_to_eat;
+	size_t		time_to_sleep;
+	size_t		start_time;
+	int			num_times_of_eat;
 }	t_philo;
 
 typedef struct s_program
 {
-	/* data */
+	t_philo	*philos;
 }	t_program;
 
 
 // PHILO_UTILS
 void	print_error(char *err);
+size_t	get_current_time(void);
+
+// ROUTINE
+void	*monitor_routine(void *arg);

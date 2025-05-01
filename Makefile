@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Philosophers
+NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = srcs

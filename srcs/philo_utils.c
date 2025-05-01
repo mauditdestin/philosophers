@@ -15,7 +15,7 @@
 static size_t ft_strlen(char *str)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while(*str++);
 		i++;
@@ -29,4 +29,12 @@ void	print_error(char *err)
 	write(2, "ERROR: ", 7);
 	err_len = ft_strlen(err);
 	write(2, err, err_len);
+}
+
+size_t	get_current_time(void)
+{
+	struct timeval	time;
+	
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
