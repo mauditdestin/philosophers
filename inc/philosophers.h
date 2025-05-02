@@ -25,14 +25,16 @@
 
 typedef struct s_philo
 {
-	pthread_t	thread;
-	int			id;
-	int			num_of_philos;
-	size_t		time_to_die;
-	size_t		time_to_eat;
-	size_t		time_to_sleep;
-	size_t		start_time;
-	int			num_times_of_eat;
+	pthread_t		thread;
+	int				id;
+	int				num_of_philos;
+	size_t			time_to_die;
+	size_t			time_to_eat;
+	size_t			time_to_sleep;
+	size_t			start_time;
+	int				num_times_of_eat;
+	pthread_mutex_t	*dead_lock;
+	bool			dead;
 }	t_philo;
 
 typedef struct s_program
@@ -47,3 +49,4 @@ size_t	get_current_time(void);
 
 // ROUTINE
 void	*monitor_routine(void *arg);
+void	philo_routine(void *arg);
