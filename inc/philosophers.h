@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:58:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/01 13:58:55 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/02 23:36:52 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 
 # define PHILO_MAX 200
 # define MAX_VAL 2147483647
+
+# define TAKE_FORK 1
+# define EAT 2
+# define SLEEP 3
+# define THINK 4
+# define DIE 5
 
 
 typedef struct s_philo
