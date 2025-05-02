@@ -17,7 +17,7 @@ bool	philo_died(t_philo *philo)
 	bool	dead;
 
 	pthread_mutex_lock(philo->dead_lock);
-	dead = *philo->dead;
+	dead = philo->dead;
 	pthread_mutex_unlock(philo->dead_lock);
 	return (dead);
 }
