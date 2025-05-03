@@ -6,12 +6,11 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:00:04 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/01 14:00:04 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/03 20:37:05 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philosophers.h"
-
 
 int main(int argc, char **argv)
 {
