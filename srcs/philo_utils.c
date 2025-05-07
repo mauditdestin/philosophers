@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:59:41 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/07 12:50:33 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:04:04 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,19 @@ int	ft_usleep(t_philo *philo, size_t ms)
 
 void	print_behaviour(t_philo *philo, int behaviour)
 {
-	
+	pthread_mutex_lock(philo->write_lock);
+	if (philo_died(philo) == true)
+		return (pthread_mutex_unlock(philo->write_lock), (void)0);
+	printf("%ld %d", (get_current_time() - philo->start_time), philo->id);
+	if (behaviour == 1)
+		printf("has taken a fork\n");
+	else if (behaviour == 2)
+		printf("is eating\n");
+	else if (behaviour == 3)
+		printf("is sleeping\n");
+	else if (behaviour == 4)
+		printf("is thinking\n");
+	else if (behaviour == 5)
+		printf("died\n");
+	pthread_mutex_unlock(philo->write_lock);
 }

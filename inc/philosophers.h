@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:58:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/07 12:52:26 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:00:46 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_philo
 	size_t			start_time;
 	int				num_times_of_eat;
 	pthread_mutex_t	*dead_lock;
+	pthread_mutex_t	*write_lock;
 	bool			dead;
 }	t_philo;
 
