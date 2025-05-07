@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:58:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/07 13:00:46 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:24:19 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,22 @@
 # include <stdio.h>
 # include <pthread.h>
 
+// Max numbers of philos to prevent excessive thread and mutex usage.
+// Max value for a signed int to avoid integer overflow.
 # define PHILO_MAX 200
 # define MAX_VAL 2147483647
 
+// ERRORS
+# define INV_NUM_ARGS "Invalid number of arguments.\n"
+# define INV_NUM "Invalid number.\n"
+# define INV_NUM_PHILOS "Invalid number of philosophers.\n"
+# define INV_TIME_DIE "Invalid time to die.\n"
+# define INV_TIME_EAT "Invalid time to eat.\n"
+# define INV_TIME_SLEEP "Invalid time to sleep.\n"
+# define INV_NUM_MEALS "Invalid number of times each philosophers must eat.\n"
+# define USAGE "Usage: number_of_philosophers time_to_die time_to_eat time_to_sleep \ [number_of_time_each_philosophers_must_eat]\n"
+
+// BEHAVIOUR
 # define TAKE_FORK 1
 # define EAT 2
 # define SLEEP 3
@@ -39,6 +52,8 @@ typedef struct s_philo
 	size_t			time_to_sleep;
 	size_t			start_time;
 	int				num_times_of_eat;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*write_lock;
 	bool			dead;
