@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:59:41 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/03 20:31:29 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/07 12:50:33 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,23 @@ size_t	get_current_time(void)
 	
 	gettimeofday(&time, NULL);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+int	ft_usleep(t_philo *philo, size_t ms)
+{
+	size_t	start;
+
+	start = get_current_time();
+	if (philo != NULL)
+		while ((get_current_time() - start) < ms && !philo_died(philo))
+			usleep(500);
+	else
+		while ((get_current_time() - start) < ms)
+			usleep(500);
+	return (0);
+}
+
+void	print_behaviour(t_philo *philo, int behaviour)
+{
+	
 }

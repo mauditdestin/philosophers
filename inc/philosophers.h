@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:58:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/02 23:36:52 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/07 12:52:26 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,28 @@ typedef struct s_program
 // PHILO_UTILS
 void	print_error(char *err);
 size_t	get_current_time(void);
+int		ft_usleep(t_philo *philo, size_t ms);
+void	print_behaviour(t_philo *philo, int behaviour);
 
 // ROUTINE
 void	*monitor_routine(void *arg);
 void	philo_routine(void *arg);
+bool	philo_died(t_philo *philo);
+
+// INPUT
+
+
+// INPUT_UTILS
+int		ft_atoi(char *str);
+
+// INIT
+void	init_prog(t_program *prog, t_philo *philo);
+
+// THREAD
+void	manage_threads(t_philo *philos);
+
+// BEHAVIOUR
+void	philo_sleep(t_philo *philo);
+void	philo_eat(t_philo *philo);
+void	philo_think(t_philo *philo);
+void	philo_die(t_philo *philo);
