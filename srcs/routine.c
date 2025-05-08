@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:00:19 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/03 20:27:56 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/09 01:31:15 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ void	philo_routine(void *arg)
 		philo_think(philos);
 	}
 	return (NULL);
+}
+
+static bool	check_if_philos_is_dead(t_philo *philos)
+{
+	int	i;
+	int	num_of_philos;
+
+	i = 0;
+	num_of_philos = philos->num_of_philos;
+	while (i < num_of_philos)
+	{
+	
+	}
 }
 
 void	*monitor_routine(void *arg)

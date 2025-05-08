@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:58:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/07 22:52:08 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/09 01:26:03 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,20 @@ typedef struct s_philo
 	pthread_t		thread;
 	int				id;
 	int				num_of_philos;
+	int				num_times_of_eat;
+	int				meals_eaten;
 	size_t			time_to_die;
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
 	size_t			start_time;
-	int				num_times_of_eat;
+	size_t			last_meal;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*write_lock;
 	pthread_mutex_t	*meal_lock;
 	bool			dead;
+	bool			is_eating;
 }	t_philo;
 
 typedef struct s_program
