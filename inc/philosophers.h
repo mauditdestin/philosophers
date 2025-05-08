@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:58:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/07 13:24:19 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/05/07 22:52:08 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,17 @@ typedef struct s_philo
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*write_lock;
+	pthread_mutex_t	*meal_lock;
 	bool			dead;
 }	t_philo;
 
 typedef struct s_program
 {
 	t_philo	*philos;
+	pthread_mutex_t	write_lock;
+	pthread_mutex_t	dead_lock;
+	pthread_mutex_t	meal_lock;
+	bool	dead_flag;
 }	t_program;
 
 
@@ -77,7 +82,7 @@ void	philo_routine(void *arg);
 bool	philo_died(t_philo *philo);
 
 // INPUT
-
+bool	are_args_valid(int argc, char **argv);
 
 // INPUT_UTILS
 int		ft_atoi(char *str);
