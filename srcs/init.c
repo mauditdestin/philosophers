@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:08:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/06/18 16:55:34 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:59:59 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,26 @@ static void init_philos_help(t_philo *philo, t_program *program, char **argv)
 
 void	init_philos(t_philo *philos, t_program *program, pthread_mutex_t *forks, char **argv)
 {
-
+	int	i;
+	int	num_of_philos;
+	
+	i = 0;
+	num_of_philos = ft_atoi(argv[1]);
+	while (i < num_of_philos)
+	{
+		philos[i].id = i;
+		philos[i].num_of_philos = num_of_philos;
+		init_philos_help(&philos[i], program, argv);
+		if (argv[5] == NULL)
+			philos[i].num_times_of_eat = -1;
+		else
+			philos[i].num_times_of_eat = ft_atoi(argv[5]);
+		philos[i].dead = &program->dead_flag;
+		philos[i].right_fork = &forks[i];
+		if (i == 0)
+			philos[i].left_fork = &forks[num_of_philos - 1];
+		else
+			philos[i].left_fork = &forks[i - 1];
+		i++;
+	}
 }
