@@ -58,7 +58,7 @@ bool	are_args_valid(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (is_numb(argv[i] == false))
+		if (is_numb(argv[i]) == false)
 			return (print_error(INV_NUM USAGE), false);
 		if (is_valid_philo_cfg(ft_atoi(argv[i]), i) == false)
 			return (false);

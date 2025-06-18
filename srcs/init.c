@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:08:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/06/18 16:59:59 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/06/19 00:11:40 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void init_philos_help(t_philo *philo, t_program *program, char **argv)
 	philo->last_meal = get_current_time();
 	philo->time_to_die = ft_atoi(argv[2]);
 	philo->time_to_eat = ft_atoi(argv[3]);
-	philo->start_time = ft_atoi(argv[4]);
+	philo->time_to_sleep = ft_atoi(argv[4]);
 	philo->start_time = get_current_time();
 	philo->write_lock = &program->write_lock;
 	philo->dead_lock = &program->dead_lock;
