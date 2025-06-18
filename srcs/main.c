@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:00:04 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/07 23:02:34 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:01:05 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	init_prog(&program, philos);
 	init_forks(forks, ft_atoi(argv[1]));
-	init_philos();
+	init_philos(philos, &program, forks, argv);
 	manage_threads(philos);
 	destroy_all_mutexes(&program, forks, ft_atoi(argv[1]));
 	return (EXIT_SUCCESS);
