@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:00:19 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/09 01:31:15 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/06/19 15:22:13 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,20 @@ static bool	check_if_philos_is_dead(t_philo *philos)
 	num_of_philos = philos->num_of_philos;
 	while (i < num_of_philos)
 	{
-	
+		pthread_mutex_lock(philos[i].meal_lock);
+		if ((get_current_time() - philos[i].last_meal) >= philos[i].time_to_die && philos[i].is_eating == false)
+		{
+			pthread_mutex_unlock(philos[i].meal_lock);
+			print_behaviour(&philos[i].meal_lock, DIE);
+			pthread_mutex_lock(philos->dead_lock);
+			*philos->dead = true;
+			pthread_mutex_unlock(philos->dead_lock);
+			return (true);
+		}
+		pthread_mutex_unlock(philos[i].meal_lock);
+		i++;
 	}
+	return (false);
 }
 
 void	*monitor_routine(void *arg)
