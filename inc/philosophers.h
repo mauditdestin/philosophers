@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:58:55 by pleblond          #+#    #+#             */
-/*   Updated: 2025/06/19 15:23:02 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/06/24 23:45:30 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@
 # define INV_TIME_EAT "Invalid time to eat.\n"
 # define INV_TIME_SLEEP "Invalid time to sleep.\n"
 # define INV_NUM_MEALS "Invalid number of times each philosophers must eat.\n"
-# define USAGE "Usage: number_of_philosophers time_to_die time_to_eat time_to_sleep \ [number_of_time_each_philosophers_must_eat]\n"
+# define USAGE "Usage: number_of_philosophers time_to_die time_to_eat time_to_sleep \
+[number_of_time_each_philosophers_must_eat]\n"
 
 // BEHAVIOUR
 # define TAKE_FORK 1
@@ -81,7 +82,7 @@ void	print_behaviour(t_philo *philo, int behaviour);
 
 // ROUTINE
 void	*monitor_routine(void *arg);
-void	philo_routine(void *arg);
+void	*philo_routine(void *arg);
 bool	philo_died(t_philo *philo);
 
 // INPUT

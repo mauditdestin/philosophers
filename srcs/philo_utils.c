@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:59:41 by pleblond          #+#    #+#             */
-/*   Updated: 2025/05/07 13:04:04 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/06/24 23:39:32 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t ft_strlen(char *str)
 	size_t	i;
 
 	i = 0;
-	while(*str++);
+	while(*str++)
 		i++;
 	return (i);
 }

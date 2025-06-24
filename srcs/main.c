@@ -6,7 +6,7 @@
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:00:04 by pleblond          #+#    #+#             */
-/*   Updated: 2025/06/18 17:01:05 by pleblond         ###   ########.fr       */
+/*   Updated: 2025/06/24 23:55:04 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static void	destroy_all_mutexes(t_program *program, pthread_mutex_t *forks, int 
 {
 	int	i;
 	
-	i = 0;
 	pthread_mutex_destroy(&program->write_lock);
 	pthread_mutex_destroy(&program->dead_lock);
 	pthread_mutex_destroy(&program->meal_lock);
+	i = 0;
 	while (i < num_of_philos)
 		pthread_mutex_destroy(&forks[i++]);
 }
